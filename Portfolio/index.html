@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamanna Nabila Islam, Civil Systems Engineering, TU Berlin</title>
+<meta name="description" content="Tamanna Nabila Islam is a PhD researcher in Civil Systems Engineering at TU Berlin, working on BIM-supported automation of greywater network design, digital twins, and sustainable construction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Source+Serif+4:opsz,ital,wght@8..60,0,400;8..60,0,600;8..60,1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F8F6;
+  --ink:#14231F;
+  --teal:#0E5F58;
+  --teal-soft:#E3EEEB;
+  --copper:#B5713C;
+  --line:#D3DED9;
+  --muted:#586B65;
+  --card:#FFFFFF;
+  --maxw:1080px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Source Serif 4', Georgia, serif;
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Bricolage Grotesque', 'Helvetica Neue', sans-serif;line-height:1.15;letter-spacing:-0.01em}
+a{color:var(--teal);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s}
+a:hover,a:focus-visible{border-bottom-color:var(--teal)}
+a:focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:2px}
+.mono{font-family:'IBM Plex Mono', monospace}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* ---------- Nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,248,246,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.nav-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);border:none}
+.nav-name:hover{border:none;color:var(--teal)}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap}
+.nav-links a{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.04em;
+  color:var(--muted);text-transform:uppercase;
+}
+.nav-links a:hover{color:var(--teal)}
+
+/* ---------- Hero ---------- */
+header.hero{padding:72px 0 64px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--copper);margin-bottom:18px;
+}
+.hero h1{font-size:clamp(2.3rem,5.4vw,3.6rem);font-weight:700;margin-bottom:20px}
+.hero h1 .accent{color:var(--teal)}
+.hero .lede{font-size:1.13rem;color:var(--muted);max-width:34em;margin-bottom:28px}
+.hero-links{display:flex;gap:12px;flex-wrap:wrap}
+.hero-portrait{display:flex;flex-direction:column;align-items:center;gap:16px}
+.hero-portrait img{
+  width:220px;height:220px;object-fit:cover;border-radius:50%;
+  border:3px solid var(--card);box-shadow:0 0 0 1px var(--line);
+}
+.hero-icons{display:flex;gap:14px}
+.hero-icons a{
+  display:flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--teal-soft);color:var(--teal);border:none;
+}
+.hero-icons a:hover{background:var(--teal);color:#fff}
+.btn{
+  display:inline-block;padding:10px 20px;border-radius:6px;
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.92rem;
+  border:1.5px solid var(--teal);transition:background .15s,color .15s;
+}
+.btn.primary{background:var(--teal);color:#fff}
+.btn.primary:hover{background:#0B4D47;border-color:#0B4D47}
+.btn.ghost{color:var(--teal);background:transparent}
+.btn.ghost:hover{background:var(--teal-soft)}
+.hero-fig{display:flex;justify-content:center}
+.hero-fig svg{width:100%;max-width:380px;height:auto}
+.hero-caption{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted);
+  text-align:center;margin-top:10px;letter-spacing:.03em;
+}
+@keyframes drawpath{to{stroke-dashoffset:0}}
+.route-path{stroke-dasharray:900;stroke-dashoffset:900;animation:drawpath 2.4s ease-out .4s forwards}
+
+/* ---------- Sections ---------- */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:32px}
+.sec-head h2{font-size:1.7rem;font-weight:700}
+.sec-head .rule{flex:1;height:1px;background:var(--line)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:48px}
+.about-grid p+p{margin-top:14px}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 24px;height:fit-content}
+.facts dt{font-family:'IBM Plex Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--copper);margin-top:14px}
+.facts dt:first-child{margin-top:0}
+.facts dd{font-size:.95rem}
+
+/* Research */
+.research-lead{max-width:44em;color:var(--muted);margin-bottom:32px;font-size:1.05rem}
+.themes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.theme{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;position:relative}
+.theme::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;background:var(--teal);border-radius:0 3px 3px 0}
+.theme h3{font-size:1.05rem;margin-bottom:8px}
+.theme p{font-size:.92rem;color:var(--muted)}
+.theme .tag{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--copper);letter-spacing:.05em;display:block;margin-bottom:8px;text-transform:uppercase}
+
+/* Publications */
+.pub{display:grid;grid-template-columns:88px 1fr;gap:20px;padding:20px 0;border-bottom:1px dashed var(--line)}
+.pub:last-child{border-bottom:none}
+.pub .year{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--copper);padding-top:3px}
+.pub h3{font-size:1.06rem;font-weight:600;margin-bottom:4px}
+.pub .authors{font-size:.9rem;color:var(--muted)}
+.pub .venue{font-size:.9rem;font-style:italic;color:var(--muted)}
+.pub .doi{font-family:'IBM Plex Mono',monospace;font-size:.78rem}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px}
+.project .head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.project h3{font-size:1.02rem}
+.project .logo{height:34px;max-width:110px;object-fit:contain;flex-shrink:0}
+.project p{font-size:.9rem;color:var(--muted)}
+.project .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.project .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;border:1px solid var(--line)}
+.project .more{display:inline-block;margin-top:12px;font-size:.85rem;font-family:'IBM Plex Mono',monospace}
+.project .tools{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.chip{
+  font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.02em;
+  background:var(--teal-soft);color:var(--teal);border-radius:4px;padding:3px 8px;
+}
+
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:100;
+  background:rgba(20,35,31,.92);
+  align-items:center;justify-content:center;padding:32px;
+  cursor:zoom-out;
+}
+.lightbox.open{display:flex}
+.lightbox img{
+  max-width:90vw;max-height:90vh;object-fit:contain;
+  border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.4);
+  cursor:default;
+}
+.lightbox-close{
+  position:absolute;top:20px;right:28px;
+  background:none;border:none;color:#fff;font-size:2.2rem;
+  line-height:1;cursor:pointer;padding:4px 10px;
+}
+.lightbox-close:hover{color:var(--copper)}
+
+/* Teaching / Voluntary lists */
+.rowlist .row{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.row-img{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.row-img img{
+  width:140px;height:100px;object-fit:cover;border-radius:6px;
+  border:1px solid var(--line);
+}
+.rowlist .row:last-child{border-bottom:none}
+.rowlist .when{font-family:'IBM Plex Mono',monospace;font-size:.82rem;color:var(--copper);padding-top:3px}
+.rowlist h3{font-size:1rem;font-weight:600;margin-bottom:2px}
+.rowlist p{font-size:.92rem;color:var(--muted)}
+
+/* Contact / footer */
+footer{padding:56px 0 72px}
+footer .wrap{text-align:center}
+footer h2{font-family:'Bricolage Grotesque',sans-serif;font-size:1.6rem;margin-bottom:12px}
+footer p{color:var(--muted);max-width:36em;margin:0 auto 24px}
+.foot-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.foot-links a{font-family:'IBM Plex Mono',monospace;font-size:.82rem;letter-spacing:.03em}
+.colophon{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+
+/* Responsive */
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-fig{order:-1}
+  .hero-fig svg{max-width:280px}
+  .about-grid{grid-template-columns:1fr}
+  .themes{grid-template-columns:1fr}
+  .projects{grid-template-columns:1fr}
+  .pub{grid-template-columns:64px 1fr}
+  .rowlist .row{grid-template-columns:1fr;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Tamanna Nabila Islam</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Research Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#voluntary">Voluntary</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">PhD Researcher · Civil Systems Engineering · TU Berlin</p>
+      <p class="lede">
+        From BIM-supported automation and digital twins to machine learning for building materials —
+        I research how data and computation can make the built environment more sustainable.
+      </p>
+      <div class="hero-links">
+        <a class="btn primary" href="#projects">View research projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-portrait">
+      <img src="assets/img/portrait.jpg" alt="Portrait of Tamanna Nabila Islam">
+      <div class="hero-icons">
+        <a href="https://www.linkedin.com/in/tamanna-nabila/" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+        <a href="mailto:tamanna.nabila.islam@tu-berlin.de" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
+        </a>
+        <a href="https://scholar.google.com/citations?user=YwslLLQAAAAJ&hl=en" aria-label="Google Scholar" title="Google Scholar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h1V9L12 3zm6.1 7l-6.1 3.33L5.9 10 12 6.67 18.1 10zM7 12.83l5 2.72 5-2.72V16l-5 2.73L7 16v-3.17z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>About</h2><div class="rule"></div></div>
+    <div class="about-grid">
+      <div>
+        <p>
+          I work as a Research Assistant and PhD candidate at the Chair of Civil Systems Engineering,
+          Technische Universität Berlin, on the <strong>IWIQ project</strong> - developing BIM-supported automation 
+          processes and digital twin systems that integrate greywater recycling and heat recovery 
+          into sustainable building design.
+        </p>
+        <p>
+          I have contributed to two major EU-funded research projects: ASHVIN and REINCARNATE, where I 
+          worked on digitalization and circularity in construction. My work included IoT-based data 
+          acquisition, deployment of the Mainflux platform, motion sensor integration, and 
+          machine-learning based quality assessment approaches, supporting the development of scalable 
+          digital twin frameworks for monitoring and improving building performance. In addition to my studies, 
+          I have gained several years of professional engineering experience, including materials research at BAM in Germany 
+          and roles in Bangladesh involving structural design, construction supervision, project coordination, and sustainable 
+          materials applications with UN-IOM and industry partners. That field experience where resources are scarce and 
+          every design decision matters shapes how I think about sustainable construction today.
+        </p>
+        <p>
+          My broader interests span circular economy in the built environment, machine learning for
+          non-destructive testing, life cycle analysis, and the automation of design processes with
+          BIM standards.
+        </p>
+      </div>
+      <dl class="facts">
+        <dt>Position</dt>
+        <dd>Research Assistant &amp; PhD Candidate, TU Berlin</dd>
+        <dt>Focus</dt>
+        <dd>Automation in construction and sustainable infrastructure design, circular economy, digital twin, BIM</dd>
+        <dt>Education</dt>
+        <dd>M.Sc. Civil Systems Engineering, TU Berlin<br>B.Sc. Civil Engineering, AUST Bangladesh</dd>
+        <dt>Languages</dt>
+        <dd>Bengali (native) · English (C1) · German (B1) · Hindi (B1) · Arabic (A1)</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head"><h2>Publications</h2><div class="rule"></div></div>
+
+    <div class="pub">
+      <div class="year">2026</div>
+      <div>
+        <h3>AI-Based Non-Destructive Crack Detection in Masonry Structures</h3>
+        <p class="authors">Tamanna Nabila Islam</p>
+        <p class="venue">Technische Universität Berlin, Zenodo (Version 0.1)</p>
+        <p class="doi"><a href="https://doi.org/10.5281/zenodo.19467874">doi:10.5281/zenodo.19467874</a></p>
+      </div>
+    </div>
+
+    <div class="pub">
+  <div class="year">Thesis</div>
+  <div>
+    <h3>Non-Destructive Quality Assessment of Masonry with Image Processing and Random Forest Algorithm</h3>
+    <p class="authors">Master's thesis, Civil Systems Engineering, Technische Universität Berlin</p>
+    <p class="award">Best Civil Systems Engineering Thesis 2025 - Faculty VI, TU Berlin
+      &middot; <a href="assets/Reincarnate/2.jpg" target="_blank">View certificate</a></p>
+  </div>
+</div>
+
+    <div class="pub">
+      <div class="year">2024</div>
+      <div>
+        <h3>Environmental Consequences of Dumping Dead Batteries of Instant Power Supply Units (IPS) on Surface Water: A Case Study on Khulna City</h3>
+        <p class="authors">Sumaya Tabassum, Sumaiya Tasnim, Nazia Islam, Tamanna Nabila Islam, Aditya Dev</p>
+        <p class="venue">International Conference on Civil Engineering for Sustainable Development (ICCESD 2024)</p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="year">2020</div>
+      <div>
+        <h3>Axial Capacity of Circular and Non-Circular Concrete Columns Confined with JFRP and CFRP Under Cyclic Loading</h3>
+        <p class="authors">Md. Mashfiqul Islam, Tamanna Nabila Islam, Riyadul Hashem Riyad, Towsif Mahdi Nur</p>
+        <p class="venue">International Conference on Civil Engineering for Sustainable Development (ICCESD 2020)</p>
+      </div>
+    </div>
+
+
+
+    <p style="margin-top:20px;font-size:.9rem;color:var(--muted)">
+      Full list on <a href="https://scholar.google.com/citations?user=YwslLLQAAAAJ&amp;hl=en">Google Scholar</a>.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Research Projects</h2><div class="rule"></div></div>
+    <div class="projects">
+<!-- PROJECTS:START (auto-generated by build.py from content.json — edits between these markers will be overwritten) -->
+      <div class="project">
+        <div class="head">
+          <h3>IWIQ - Greywater Recycling &amp; Heat Recovery</h3>
+          <div class="logos">
+            <img class="logo" src="assets/IWIQ/IWIQ-Logo-Blau-590x230.png" alt="IWIQ - Greywater Recycling &amp; Heat Recovery logo">
+          </div>
+        </div>
+        <p>Ongoing PhD research within a multi-partner project on integrated water quality and reuse in residential buildings. I develop the BIM-based pipeline that extracts greywater sources from IFC models and generates routing networks automatically.</p>
+        <div class="gallery">
+          <img src="assets/IWIQ/1.jpg" alt="IWIQ - Greywater Recycling &amp; Heat Recovery — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/IWIQ/BIM.jpg" alt="IWIQ - Greywater Recycling &amp; Heat Recovery — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+        </div>
+        <div class="tools"><span class="chip">Python</span><span class="chip">Revit- API/IFC</span><span class="chip">BIM-automation algorithms</span><span class="chip">Digital twin</span></div>
+        <a class="more" href="https://www.tu.berlin/civilsystems/forschung/projekte/current-projects/reallabor-iwiq">More &rarr;</a> 
+      </div>
+
+      <div class="project">
+        <div class="head">
+          <h3>LIBSMapy - Spectroscopy Analysis Toolkit</h3>
+          <div class="logos">
+            <img class="logo" src="assets/BAM/bam.png" alt="LIBSMapy - Spectroscopy Analysis Toolkit logo">
+          </div>
+        </div>
+        <p>Contributed at BAM (Federal Institute for Materials Research and Testing) to a Python application for evaluating Laser-Induced Breakdown Spectroscopy measurements of cementitious materials: denoising, regression models, element mapping, clustering, and cement-content estimation.</p>
+        <div class="tools"><span class="chip">Python</span><span class="chip">Signal processing</span><span class="chip">Regression</span><span class="chip">clustering</span></div>
+      </div>
+
+      <div class="project">
+        <div class="head">
+          <h3>Reincarnate - Circular Construction</h3>
+          <div class="logos">
+            <img class="logo" src="assets/Reincarnate/Reincarnate_Logo.png" alt="Reincarnate - Circular Construction logo">
+          </div>
+        </div>
+        <p>EU research project on circular economy in construction. Worked on brick quality assessment with machine-learning-based crack detection to enable the reuse of masonry materials.</p>
+        <div class="gallery">
+          <img src="assets/Reincarnate/1.jpg" alt="Reincarnate - Circular Construction — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/Reincarnate/Demo-case.png" alt="Reincarnate - Circular Construction — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/Reincarnate/Picture-Consortium.jpg" alt="Reincarnate - Circular Construction — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+        </div>
+        <div class="tools"><span class="chip">Machine learning</span><span class="chip">Computer vision</span><span class="chip">Python</span></div>
+        <a class="more" href="https://www.reincarnate-project.eu/ai-based-non-destructive-crack-detection-in-masonry-structures/">More &rarr;</a> 
+      </div>
+
+      <div class="project">
+        <div class="head">
+          <h3>Ashvin - Digital Twins with IoT</h3>
+          <div class="logos">
+            <img class="logo" src="assets/Ashvin/Logo_Ashvin.png" alt="Ashvin - Digital Twins with IoT logo">
+          </div>
+        </div>
+        <p>EU research project on digital twins for construction. Deployed the Mainflux IoT platform on Raspberry Pi, connected motion sensors via ESP32 microcontrollers, and built real-time visualisation of transmitted sensor data.</p>
+        <div class="gallery">
+          <img src="assets/Ashvin/Habitat7.png" alt="Ashvin - Digital Twins with IoT — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+        </div>
+        <div class="tools"><span class="chip">Mainflux</span><span class="chip">IoT</span><span class="chip">Raspberry Pi</span><span class="chip">ESP32</span></div>
+        <a class="more" href="https://www.ashvin.eu/2023/12/04/13-new-construction-sites-onboarded-to-the-ashvin-digital-twin-platform/">More &rarr;</a> 
+      </div>
+
+      <div class="project">
+        <div class="head">
+          <h3>IOM-UN - Sustainable materials for humanitarian shelters</h3>
+          <div class="logos">
+            <img class="logo" src="assets/UN-IOM/IOM.png" alt="IOM-UN - Sustainable materials for humanitarian shelters logo">
+          </div>
+        </div>
+        <p>Site development with sustainable materials for Rohingya Refugee Camp in Bangladesh towards sustainable development goals (UN-SDG). Implemented Bamboo-Jutebag retaining walls and Bamboo-reinforced rammed earth walls for flood-resilient shelters; hazard mapping and risk assessment with GIS maps</p>
+        <div class="gallery">
+          <img src="assets/UN-IOM/1.jpg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/2.jpg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/3.jpg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/4.jpg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/5.jpeg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/6.jpg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/7.jpeg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/8.jpg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          <img src="assets/UN-IOM/9.jpg" alt="IOM-UN - Sustainable materials for humanitarian shelters — project picture" loading="lazy" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+        </div>
+        <div class="tools"><span class="chip">GIS</span><span class="chip">SWMaps</span><span class="chip">Sustainable materials</span></div>
+      </div>
+
+      <div class="project">
+        <div class="head"><h3>Predictive Maintenance of Glulam Beams</h3></div>
+        <p>Independent research developing a data-driven LCA approach: a Random Forest model forecasting moisture content and humidity over a 10-year horizon to flag when timber beams need maintenance.</p>
+        <div class="tools"><span class="chip">Python</span><span class="chip">Random Forest</span><span class="chip">LCA</span></div>
+      </div>
+
+      <div class="project">
+        <div class="head"><h3>Resilience of Critical Infrastructure</h3></div>
+        <p>Team project using reinforcement learning in R to optimise emergency response in Berlin — identifying accident-prone areas and modelling distances to the nearest hospitals across interdependent infrastructure systems.</p>
+        <div class="tools"><span class="chip">RStudio</span><span class="chip">Reinforcement learning</span><span class="chip">GIS</span></div>
+      </div>
+<!-- PROJECTS:END -->
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><h2>Experience</h2><div class="rule"></div></div>
+    <div class="rowlist">
+      <div class="row">
+        <div class="when">2025 — current</div>
+        <div>
+          <h3>Research Assistant &amp; PhD Candidate — Technische Universität Berlin</h3>
+          <p>IWIQ project: BIM-supported processes and digital twin systems for integrating greywater
+          recycling and heat recovery into sustainable building design.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2023 — 2025</div>
+        <div>
+          <h3>Student Research Assistant — Technische Universität Berlin</h3>
+          <p>Reincarnate and Ashvin EU projects: circular economy in construction, ML-based brick quality
+          assessment, IoT-driven digital twins, and Mattermost server maintenance.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2025</div>
+        <div>
+          <h3>Student Research Assistant — Bundesanstalt für Materialforschung und -prüfung (BAM)</h3>
+          <p>Development of LIBSMapy, a Python toolkit for evaluating Laser-Induced Breakdown
+          Spectroscopy measurements of cementitious materials.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2022</div>
+        <div>
+          <h3>Senior Field Engineer — IOM UN Migration (Enroute International Ltd), Cox's Bazar</h3>
+          <p>Construction supervision, AutoCAD design, and project management in one of the world's
+          largest refugee camp settings.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2021 — 2022</div>
+        <div>
+          <h3>Field Engineer — IOM UN Migration (Enroute International Ltd), Dhaka</h3>
+          <p>Refugee camp construction supervision with sustainable materials and circular economy
+          principles; BOQ preparation and GIS-based disaster risk management.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2021</div>
+        <div>
+          <h3>Structural Consultant — Dhaka Professionals, Dhaka</h3>
+          <p>Structural design and analysis with AutoCAD and ETABS; project management and
+          construction supervision.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2020 — 2021</div>
+        <div>
+          <h3>Sr. Project Engineer — BANGLAMARK Corporation, Dhaka</h3>
+          <p>Structural design, BOQ and estimation, procurement, and coordination with suppliers
+          and clients.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2018 — 2020</div>
+        <div>
+          <h3>Graduate Transmission Line Engineer — Electricity Transmission Consultant (BD.) Ltd., Dhaka</h3>
+          <p>Foundation design of transmission line structures, BOQ, and quality control in coordination
+          with clients and government stakeholders.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="sec-head"><h2>Teaching</h2><div class="rule"></div></div>
+    <div class="rowlist">
+      <div class="row">
+        <div class="when">2022 — 2023</div>
+        <div>
+          <h3>Teaching Assistant — TU Berlin, “Sustain.ALL: a Collaboration Lab on Sustainable Development Goals”</h3>
+          <p>Faculty of Smart Water Networks, TU Berlin. Prepared teaching materials, coordinated events,
+          and supported research and data analysis for the project lab.</p>
+          <div class="row-img">
+            <img src="assets/Sustain.ALL/1.jpg" alt="Teaching Assistant activity, Sustain.ALL lab" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/Sustain.ALL/2.jpg" alt="Teaching Assistant activity, Sustain.ALL lab" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/Sustain.ALL/3.jpg" alt="Teaching Assistant activity, Sustain.ALL lab" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/Sustain.ALL/4.jpg" alt="Teaching Assistant activity, Sustain.ALL lab" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/Sustain.ALL/5.jpg" alt="Teaching Assistant activity, Sustain.ALL lab" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/Sustain.ALL/7.jpg" alt="Teaching Assistant activity, Sustain.ALL lab" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voluntary">
+  <div class="wrap">
+    <div class="sec-head"><h2>Voluntary Work</h2><div class="rule"></div></div>
+    <div class="rowlist">
+      <div class="row">
+        <div class="when">2023 — 2024</div>
+        <div>
+          <h3>DAAD Young Ambassador, DAAD India</h3>
+          <p>Volunteered with the German Academic Exchange Service, sharing first-hand guidance on
+          studying and researching in Germany with prospective international students.</p>
+          <div class="row-img">
+            <img src="assets/DAAD/1.png" alt="DAAD Young Ambassador activity" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/DAAD/2.jpg" alt="DAAD Young Ambassador activity" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/DAAD/3.jpg" alt="DAAD Young Ambassador activity" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+            <img src="assets/DAAD/4.jpg" alt="DAAD Young Ambassador activity" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          </div>
+          <div class="row-links">
+      <a href="https://www.daad.in/en/about-us/daad-network/daad-young-ambassadors/young-ambassadors-2023/#abhayashares">DAAD profile page</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2023</div>
+        <div>
+          <h3>Greening Africa Together (GATo) — Senegal Peace Forest Project</h3>
+          <p>Carbon footprint calculation and waste management strategy development aligned with the
+          Sustainable Development Goals; presented as a team poster.</p>
+          <div class="row-img">
+            <img src="assets/Senegal/6.jpg" alt="GATo Senegal Peace Forest poster presentation" onclick="openLightbox(this.src, this.alt)" style="cursor:zoom-in">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="when">2016 — 2018</div>
+        <div>
+          <h3>Executive Member, Women Leadership — Convero, Dhaka</h3>
+          <p>Organised initiatives supporting women's leadership development.</p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section id="membership">
+  <div class="wrap">
+    <div class="sec-head"><h2>Membership</h2><div class="rule"></div></div>
+    <div class="rowlist">
+      <div class="row">
+        <div class="when">2018 — current</div>
+        <div>
+          <h3>Associate Member, Institution of Engineers, Bangladesh</h3>
+          <p>Professional membership supporting the engineering community in Bangladesh.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>
+      I'm always glad to hear from researchers, students, and practitioners interested in
+      BIM automation, water reuse, or sustainable construction.
+    </p>
+    <div class="foot-links">
+      <a href="mailto:tamanna.nabila.islam@tu-berlin.de">Email</a>
+      <a href="https://www.tu.berlin/civilsystems/ueber-uns/team/tamanna-nabila-islam">TU Berlin profile</a>
+      <a href="https://scholar.google.com/citations?user=YwslLLQAAAAJ&amp;hl=en">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/tamanna-nabila/">LinkedIn</a>
+    </div>
+    <p class="colophon">© 2026 Tamanna Nabila Islam · Berlin</p>
+  </div>
+</footer>
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = alt;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+</body>
+</html>
